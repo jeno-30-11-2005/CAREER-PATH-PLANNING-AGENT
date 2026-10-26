@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0A0A0E;
+    color: #E2E8F0;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom glow and theme utilities inspired by the reference dark dashboard */
+.glass-panel {
+  background: rgba(22, 22, 30, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-glow {
+  background: radial-gradient(circle at 50% 100%, rgba(157, 78, 221, 0.18), rgba(20, 20, 28, 0.9) 70%);
+  border: 1px solid rgba(199, 125, 255, 0.25);
+}
+
+.neon-pill-active {
+  background: linear-gradient(135deg, rgba(157, 78, 221, 0.35), rgba(90, 24, 154, 0.45));
+  border: 1px solid rgba(224, 170, 255, 0.4);
+  box-shadow: 0 0 15px -3px rgba(157, 78, 221, 0.4);
+}
+
+.neon-btn {
+  background: linear-gradient(135deg, #9D4EDD 0%, #C77DFF 100%);
+  color: #FFFFFF;
+  box-shadow: 0 0 20px -3px rgba(157, 78, 221, 0.6);
+  transition: all 0.25s ease-in-out;
+}
+
+.neon-btn:hover {
+  box-shadow: 0 0 25px 0px rgba(199, 125, 255, 0.85);
+  transform: translateY(-1px);
+}
+
+/* Custom Dark Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0B0E;
+}
+::-webkit-scrollbar-thumb {
+  background: #232332;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9D4EDD;
+}
