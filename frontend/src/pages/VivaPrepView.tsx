@@ -23,7 +23,7 @@ export const VivaPrepView: React.FC = () => {
           <p>
             An <strong>Agentic Workflow</strong> is a multi-step orchestrated pipeline where specialized software components coordinate to accomplish a complex goal.
           </p>
-          <ul className="list-disc list-inside space-y-1 text-slate-300">
+          <ul className="list-disc list-inside space-y-1 text-slate-600">
             <li>
               <strong>Ordinary Prompt:</strong> Involves sending a single prompt to an LLM, hoping it won't hallucinate skills, timelines, or invalid steps.
             </li>
@@ -42,10 +42,10 @@ export const VivaPrepView: React.FC = () => {
           <p>
             We use a <strong>transparent multi-factor weighted scoring formula</strong> instead of arbitrary random numbers:
           </p>
-          <div className="p-3 rounded-xl bg-[#0B0B0E] font-mono text-[11px] text-[#E0AAFF]">
+          <div className="p-3 rounded-lg bg-blue-50 border border-blue-200 font-mono text-[11px] text-[#1b3bbb]">
             Total Score = (0.40 × Skill_Score) + (0.30 × Interest_Score) + (0.15 × Field_Pref) + (0.10 × Experience) + (0.05 × Goals)
           </div>
-          <p className="text-slate-300">
+          <p className="text-slate-600">
             - Technical skills are weighted highest (40%), comparing required and recommended skills.
             - Overlap ratios are bounded between 15% and 98.5% and labeled as educational compatibility, never as employment guarantees.
           </p>
@@ -55,7 +55,7 @@ export const VivaPrepView: React.FC = () => {
     {
       q: '3. Why is a deterministic rule-based fallback critical for an AI project?',
       a: (
-        <p className="text-slate-300">
+        <p className="text-slate-600">
           In high-stakes educational or academic evaluations, relying solely on an external paid API is risky due to rate limits, internet drops, or quota exhaustion. Our system integrates Google Gemini for conversational assistance, but features a <strong>100% deterministic offline fallback</strong> built upon our institutional career knowledge base, ensuring zero downtime during college viva demonstrations.
         </p>
       )
@@ -63,7 +63,7 @@ export const VivaPrepView: React.FC = () => {
     {
       q: '4. Why did you choose FastAPI, Pydantic, and SQLAlchemy for the backend?',
       a: (
-        <ul className="list-disc list-inside space-y-1 text-slate-300">
+        <ul className="list-disc list-inside space-y-1 text-slate-600">
           <li><strong>FastAPI:</strong> Modern high-performance asynchronous Python framework with auto-generated OpenAPI/Swagger documentation at <code>/docs</code>.</li>
           <li><strong>Pydantic:</strong> Strict data validation at runtime, rejecting malformed requests (HTTP 422) before touching the database.</li>
           <li><strong>SQLAlchemy:</strong> Industry-standard ORM providing decoupled database queries and seamless migration support from SQLite to PostgreSQL.</li>
@@ -73,7 +73,7 @@ export const VivaPrepView: React.FC = () => {
     {
       q: '5. How does the Skill-Gap Analysis categorize student competencies?',
       a: (
-        <p className="text-slate-300">
+        <p className="text-slate-600">
           It classifies required role skills into three transparent categories:
           <br /><strong>1. Confirmed:</strong> Declared directly in the student's academic profile.
           <br /><strong>2. Partially Developed:</strong> Foundation reported (e.g. general Python declared, but advanced PyTorch omitted).
@@ -100,27 +100,27 @@ export const VivaPrepView: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="p-6 sm:p-8 bg-[#14141D] border border-white/5 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="p-6 sm:p-8 rubick-card flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <GraduationCap className="w-5 h-5 text-[#C77DFF]" />
-            <h2 className="text-xl font-bold text-white">Project Viva Defense & Academic Hub</h2>
+            <GraduationCap className="w-6 h-6 text-[#1b3bbb]" />
+            <h2 className="text-xl font-bold text-slate-900">Project Viva Defense & Academic Hub</h2>
           </div>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Complete preparation guide for your BE Artificial Intelligence & Data Science mini-project presentation.
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 font-semibold">
+          <span className="text-xs px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-bold">
             11/11 Automated Tests Passing
           </span>
         </div>
       </div>
 
       {/* Viva Questions Accordion */}
-      <div className="bg-[#14141D] border border-white/5 rounded-3xl p-6 sm:p-8">
-        <h3 className="text-base font-bold text-white mb-4 flex items-center gap-2">
-          <BookOpen className="w-4 h-4 text-[#C77DFF]" />
+      <div className="rubick-card p-6 sm:p-8">
+        <h3 className="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <BookOpen className="w-5 h-5 text-[#1b3bbb]" />
           <span>Top 5 Viva Questions & Explanations</span>
         </h3>
 
@@ -128,21 +128,21 @@ export const VivaPrepView: React.FC = () => {
           {vivaQuestions.map((item, idx) => (
             <div
               key={idx}
-              className="bg-[#0B0B0E] border border-white/5 rounded-2xl overflow-hidden transition-all"
+              className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden transition-all"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className="w-full p-4 text-left flex items-center justify-between text-xs font-bold text-white hover:text-[#C77DFF]"
+                className="w-full p-4 text-left flex items-center justify-between text-xs font-bold text-slate-800 hover:text-[#1b3bbb]"
               >
                 <span>{item.q}</span>
                 {openIndex === idx ? (
-                  <ChevronUp className="w-4 h-4 text-slate-400 shrink-0 ml-2" />
+                  <ChevronUp className="w-4 h-4 text-slate-500 shrink-0 ml-2" />
                 ) : (
-                  <ChevronDown className="w-4 h-4 text-slate-400 shrink-0 ml-2" />
+                  <ChevronDown className="w-4 h-4 text-slate-500 shrink-0 ml-2" />
                 )}
               </button>
               {openIndex === idx && (
-                <div className="px-4 pb-4 pt-1 text-xs text-slate-300 border-t border-white/5">
+                <div className="px-4 pb-4 pt-1 text-xs text-slate-600 border-t border-slate-200 bg-white">
                   {item.a}
                 </div>
               )}
@@ -152,20 +152,20 @@ export const VivaPrepView: React.FC = () => {
       </div>
 
       {/* 10-Slide Presentation Outline */}
-      <div className="bg-[#14141D] border border-white/5 rounded-3xl p-6 sm:p-8">
-        <h3 className="text-base font-bold text-white mb-4 flex items-center gap-2">
-          <FileText className="w-4 h-4 text-[#C77DFF]" />
+      <div className="rubick-card p-6 sm:p-8">
+        <h3 className="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <FileText className="w-5 h-5 text-[#1b3bbb]" />
           <span>10-Slide Presentation Outline for College Review</span>
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {presentationSlides.map((s, idx) => (
-            <div key={idx} className="bg-[#0B0B0E] border border-white/5 rounded-2xl p-4">
-              <span className="text-[10px] font-bold text-[#E0AAFF] uppercase tracking-wider">
+            <div key={idx} className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <span className="text-[10px] font-bold text-[#1b3bbb] uppercase tracking-wider bg-blue-50 px-2 py-0.5 rounded border border-blue-100 inline-block">
                 {s.slide}
               </span>
-              <h4 className="text-xs font-bold text-white mt-1">{s.title}</h4>
-              <p className="text-[11px] text-slate-400 mt-1 leading-relaxed">{s.content}</p>
+              <h4 className="text-xs font-bold text-slate-900 mt-2">{s.title}</h4>
+              <p className="text-[11px] text-slate-600 mt-1 leading-relaxed">{s.content}</p>
             </div>
           ))}
         </div>

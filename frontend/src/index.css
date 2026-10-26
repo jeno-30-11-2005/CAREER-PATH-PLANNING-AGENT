@@ -4,54 +4,61 @@
 
 @layer base {
   body {
-    background-color: #0A0A0E;
-    color: #E2E8F0;
+    background-color: #F1F5F9;
+    color: #1E293B;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   }
 }
 
-/* Custom glow and theme utilities inspired by the reference dark dashboard */
-.glass-panel {
-  background: rgba(22, 22, 30, 0.75);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Rubick Design System Utilities */
+.rubick-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
 }
 
-.glass-panel-glow {
-  background: radial-gradient(circle at 50% 100%, rgba(157, 78, 221, 0.18), rgba(20, 20, 28, 0.9) 70%);
-  border: 1px solid rgba(199, 125, 255, 0.25);
-}
-
-.neon-pill-active {
-  background: linear-gradient(135deg, rgba(157, 78, 221, 0.35), rgba(90, 24, 154, 0.45));
-  border: 1px solid rgba(224, 170, 255, 0.4);
-  box-shadow: 0 0 15px -3px rgba(157, 78, 221, 0.4);
-}
-
-.neon-btn {
-  background: linear-gradient(135deg, #9D4EDD 0%, #C77DFF 100%);
+.rubick-btn {
+  background-color: #1b3bbb;
   color: #FFFFFF;
-  box-shadow: 0 0 20px -3px rgba(157, 78, 221, 0.6);
-  transition: all 0.25s ease-in-out;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 2px 0 rgba(27, 59, 187, 0.2);
 }
 
-.neon-btn:hover {
-  box-shadow: 0 0 25px 0px rgba(199, 125, 255, 0.85);
+.rubick-btn:hover {
+  background-color: #152e95;
+  box-shadow: 0 4px 6px -1px rgba(27, 59, 187, 0.3);
   transform: translateY(-1px);
 }
 
-/* Custom Dark Scrollbar */
+.rubick-btn-outline {
+  background-color: #FFFFFF;
+  color: #1E293B;
+  border: 1px solid #E2E8F0;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.rubick-btn-outline:hover {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+/* Custom Scrollbar for Rubick Light Theme */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B0B0E;
+  background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #232332;
+  background: #CBD5E1;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #9D4EDD;
+  background: #94A3B8;
 }

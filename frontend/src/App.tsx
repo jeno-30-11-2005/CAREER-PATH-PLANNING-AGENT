@@ -190,7 +190,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#0B0B0E] text-slate-100 font-sans">
+    <div className="flex min-h-screen bg-[#F1F5F9] text-slate-800 font-sans">
       {/* Sidebar matching the theme reference */}
       <Sidebar
         activeTab={activeTab}

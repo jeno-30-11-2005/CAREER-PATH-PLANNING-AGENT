@@ -20,43 +20,43 @@ export const WorkflowModal: React.FC<WorkflowModalProps> = ({
   if (!isOpen || !workflowData) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
-      <div className="bg-[#12121A] border border-purple-500/30 rounded-3xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-glow-violet p-6 sm:p-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+      <div className="bg-white border border-slate-200 rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8">
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-white/5">
+        <div className="flex items-center justify-between pb-4 border-b border-slate-200">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#9D4EDD] to-[#C77DFF] flex items-center justify-center shadow-glow-violet">
-              <Sparkles className="w-5 h-5 text-white animate-spin-slow" />
+            <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-[#1b3bbb]">
+              <Sparkles className="w-5 h-5 text-[#1b3bbb]" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="text-xl font-bold text-white">Agentic Workflow: Plan Proposal</h2>
-                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-purple-500/20 text-[#E0AAFF] border border-purple-500/30">
+                <h2 className="text-xl font-bold text-slate-900">Agentic Workflow: Plan Proposal</h2>
+                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-blue-50 text-[#1b3bbb] border border-blue-200">
                   Human-in-the-Loop
                 </span>
               </div>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-500">
                 Coordinated pipeline executed across 5 analytical components
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all"
+            className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-800 transition-all"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Workflow Execution Log Stepper */}
-        <div className="mt-5 bg-[#0B0B0E] border border-white/5 rounded-2xl p-4">
-          <h3 className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2.5">
+        <div className="mt-5 bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <h3 className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5">
             Component Coordination Pipeline
           </h3>
-          <div className="space-y-1.5 font-mono text-[11px] text-slate-300">
+          <div className="space-y-1.5 font-mono text-[11px] text-slate-700">
             {workflowData.workflow_log.map((log, index) => (
               <div key={index} className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>{log}</span>
               </div>
             ))}
@@ -64,15 +64,15 @@ export const WorkflowModal: React.FC<WorkflowModalProps> = ({
         </div>
 
         {/* Quality Review & Guardrails Check */}
-        <div className="mt-4 p-4 rounded-2xl bg-emerald-950/20 border border-emerald-500/30">
-          <div className="flex items-center gap-2 text-emerald-400 font-semibold text-xs mb-1">
-            <ShieldCheck className="w-4 h-4" />
+        <div className="mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200">
+          <div className="flex items-center gap-2 text-emerald-800 font-bold text-xs mb-1">
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
             <span>Component 5: Quality Review & Guardrail Verification (Passed)</span>
           </div>
-          <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-300 mt-2">
+          <div className="grid grid-cols-2 gap-2 text-[11px] text-emerald-900 mt-2">
             {workflowData.quality_review.checks_run.map((check, idx) => (
               <div key={idx} className="flex items-center gap-1.5">
-                <span className="text-emerald-400">✓</span> {check}
+                <span className="text-emerald-600 font-bold">✓</span> {check}
               </div>
             ))}
           </div>
@@ -80,42 +80,42 @@ export const WorkflowModal: React.FC<WorkflowModalProps> = ({
 
         {/* Proposed Target Role & Roadmap Preview */}
         <div className="mt-5 space-y-4">
-          <div className="bg-[#181822] border border-white/5 rounded-2xl p-4 flex items-center justify-between">
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex items-center justify-between">
             <div>
-              <p className="text-[11px] text-slate-400 uppercase tracking-wider">Target Career Role</p>
-              <h4 className="text-base font-bold text-white mt-0.5">
+              <p className="text-[11px] text-slate-500 uppercase font-bold tracking-wider">Target Career Role</p>
+              <h4 className="text-base font-bold text-slate-900 mt-0.5">
                 {workflowData.selected_role.title}
               </h4>
-              <p className="text-xs text-[#C77DFF]">{workflowData.selected_role.category}</p>
+              <p className="text-xs font-semibold text-[#1b3bbb]">{workflowData.selected_role.category}</p>
             </div>
             <div className="text-right">
-              <p className="text-[11px] text-slate-400">Curriculum Scope</p>
-              <p className="text-base font-bold text-white">
+              <p className="text-[11px] text-slate-500">Curriculum Scope</p>
+              <p className="text-base font-bold text-slate-900">
                 {workflowData.proposed_roadmap.items.length} Milestones
               </p>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-500">
                 ~{workflowData.proposed_roadmap.total_estimated_weeks} Weeks ({workflowData.proposed_roadmap.weekly_hours} hrs/wk)
               </p>
             </div>
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+            <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
               Proposed Curriculum Steps (Awaiting Approval)
             </h4>
             <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
               {workflowData.proposed_roadmap.items.map((step, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#161620] border border-white/5 rounded-xl p-3 flex items-start justify-between text-xs"
+                  className="bg-white border border-slate-200 rounded-xl p-3 flex items-start justify-between text-xs shadow-sm"
                 >
                   <div>
-                    <span className="font-semibold text-white">
+                    <span className="font-bold text-slate-900">
                       {step.step_number}. {step.skill_topic}
                     </span>
-                    <p className="text-[11px] text-slate-400 mt-0.5">{step.why_it_matters}</p>
+                    <p className="text-[11px] text-slate-500 mt-0.5">{step.why_it_matters}</p>
                   </div>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-slate-300 shrink-0 ml-3">
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-blue-50 text-[#1b3bbb] font-bold shrink-0 ml-3 border border-blue-100">
                     {step.phase.split('.')[1] || step.phase}
                   </span>
                 </div>
@@ -125,21 +125,21 @@ export const WorkflowModal: React.FC<WorkflowModalProps> = ({
         </div>
 
         {/* Human in the loop confirmation footer */}
-        <div className="flex items-center justify-between pt-6 mt-6 border-t border-white/5">
-          <p className="text-xs text-slate-400 italic">
+        <div className="flex items-center justify-between pt-5 mt-5 border-t border-slate-200">
+          <p className="text-xs text-slate-500 italic">
             * You can modify milestones and track progress anytime after approval.
           </p>
           <div className="flex items-center gap-3">
             <button
               onClick={onClose}
-              className="px-5 py-2.5 rounded-full text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/5 transition-all"
+              className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all"
             >
               Cancel
             </button>
             <button
               onClick={onApprove}
               disabled={isApproving}
-              className="neon-btn px-6 py-2.5 rounded-full text-xs font-semibold flex items-center gap-2"
+              className="rubick-btn px-5 py-2 text-xs font-semibold flex items-center gap-2"
             >
               <CheckCircle2 className="w-4 h-4" />
               <span>{isApproving ? 'Saving...' : 'Approve & Commit Plan'}</span>
