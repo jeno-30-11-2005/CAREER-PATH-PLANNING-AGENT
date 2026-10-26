@@ -1,109 +1,87 @@
-# Intelligent Career Path Planning Agent
+# Intelligent Career Path Planning System
 
-**BE Artificial Intelligence & Data Science Mini-Project**  
-*An explainable, agentic career guidance platform with deterministic matching, skill-gap analysis, personalized roadmaps, and offline-tolerant AI assistance.*
-
----
-
-## 🎨 Theme & User Interface
-The user interface implements a **Dark Obsidian & Neon Violet Glow** aesthetic:
-- **Glassmorphism Panels:** Layered dark cards with subtle borders (`#14141D` on `#0B0B0E`).
-- **Accent Glow:** Glowing neon purple and magenta buttons (`#9D4EDD` $\rightarrow$ `#C77DFF`).
-- **Interactive Metrics:** "Total Readiness Score", "Skill Inventory", "Curriculum Progress Curve", and "Target Roles Watchlist".
-- **Human-in-the-Loop Review:** Dedicated approval modal for agent-proposed curriculum plans before database persistence.
+**BE Artificial Intelligence and Data Science Mini-Project**  
+A simple, complete, and explainable career guidance application built with **Python & Streamlit**.
 
 ---
 
-## 🚀 Key Modules Built
-
-1. **Module A: Student Academic Profile**
-   - Captures education level, degree specialization, year/semester, declared technical & soft skills, experience, and weekly hours.
-2. **Module B: Career Role Knowledge Base**
-   - 8 pre-seeded industry & academic roles:
-     1. Machine Learning Engineer
-     2. AI Engineer
-     3. Data Analyst
-     4. Data Scientist
-     5. Backend Developer
-     6. Data Engineer
-     7. MLOps Engineer
-     8. AI Product Engineer
-3. **Module C: Deterministic Career Recommendation Engine**
-   - Transparent 5-factor weighted algorithm (Skills 40%, Interests 30%, Field Preference 15%, Experience 10%, Goals 5%).
-4. **Module D: Skill-Gap Analysis**
-   - Categorizes skills into Confirmed (reported), Partially Developed (foundational), and Not Yet Reported, with an educational disclaimer.
-5. **Module E & I: Personalized Roadmap & Progress Tracker**
-   - 5-phase sequential roadmap (Foundations $\rightarrow$ Core Skills $\rightarrow$ Applied Practice $\rightarrow$ Portfolio Projects $\rightarrow$ Viva Prep).
-   - Milestone checkboxes, notes taking, and verified tutorial links.
-6. **Module F: Conversational AI Career Assistant**
-   - LLM integration using Google Gemini with 100% deterministic offline fallback to the institutional knowledge base.
-7. **Module G: Controlled Agentic Workflow**
-   - 6-component coordinated pipeline with automated quality guardrails and human review approval.
-8. **Module H: Student Dashboard**
-   - Executive dashboard tracking progress percentages, readiness curves, and next recommended skills.
-9. **Viva & Academic Defense Hub**
-   - Built-in viva guide with top 5 examiner questions, answers, and a 10-slide presentation outline.
+## 🎯 Project Purpose
+Many engineering students struggle to decide which career path fits their skills and interests. This application helps students:
+1. Input their academic profile, skills, and interests.
+2. Receive transparent, rule-based career recommendations.
+3. Understand their **Skill Gap** (skills they already possess vs. skills they need to learn).
+4. Follow a structured **4-step career roadmap** with timelines and milestones.
 
 ---
 
 ## 🛠️ Technology Stack
+- **Language:** Python 3.11
+- **User Interface:** Streamlit (clean, modern, single-page dashboard)
+- **Logic:** Transparent rule-based weighted matching (no black-box AI, no external APIs, no database required)
 
-- **Frontend:** React 18, TypeScript, Vite, Tailwind CSS, Lucide Icons
-- **Backend:** Python 3.11, FastAPI, Pydantic v2, SQLAlchemy ORM, Uvicorn
-- **Database:** SQLite (default for instant zero-config setup) / PostgreSQL support
-- **Testing:** Pytest (11/11 automated tests passing in 0.70s)
-- **AI Integration:** Google Gemini 1.5 Flash + Deterministic Knowledge-Based Fallback
+---
+
+## 📁 Project Structure (Only 4 Core Files)
+
+```
+CAREER PATH PLANNING AGENT/
+│
+├── app.py              # Main Streamlit web application (UI & navigation)
+├── career_data.py      # Career knowledge base & roadmaps (Python dictionary)
+├── logic.py            # Scoring formula & skill-gap functions
+├── test_system.py      # Automated verification test script (5 test cases)
+├── requirements.txt    # Streamlit dependency
+├── viva_guide.md       # Viva questions & project report outline
+└── README.md           # Setup and execution guide
+```
 
 ---
 
 ## ⚡ How to Run the Project (Windows PowerShell)
 
-### One-Click Launch (Recommended)
-Run the master start script in PowerShell:
-```powershell
-.\scripts\start_all.ps1
-```
-This opens two terminals:
-- **Backend Server:** [http://127.0.0.1:8000](http://127.0.0.1:8000) (Interactive Swagger UI at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs))
-- **Frontend App:** [http://localhost:5173](http://localhost:5173)
-
----
-
-### Manual Launch (Step-by-Step)
-
-#### 1. Start the FastAPI Backend
+### Step 1: Open PowerShell
+Make sure you are in the project folder:
 ```powershell
 cd "c:\Users\student\Desktop\CAREER PATH PLANNING AGENT"
-.\venv\Scripts\Activate.ps1
-python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
-#### 2. Start the React Frontend (in a new PowerShell window)
+### Step 2: Activate the Virtual Environment
 ```powershell
-cd "c:\Users\student\Desktop\CAREER PATH PLANNING AGENT\frontend"
-$env:PATH = "C:\Users\student\Desktop\CAREER PATH PLANNING AGENT\tools\nodejs;$env:PATH"
-npm run dev
+.\venv\Scripts\Activate.ps1
 ```
+*(You will see `(venv)` appear on the left side of your prompt).*
+
+### Step 3: Run the Streamlit Application
+```powershell
+streamlit run app.py
+```
+*Expected Output:*
+```
+Local URL: http://localhost:8501
+Network URL: http://...:8501
+```
+Streamlit will automatically open your web browser at **`http://localhost:8501`**!
 
 ---
 
-## 🧪 Running Automated Tests
+## 🧪 How to Run Automated Tests
 
-Execute the 11 Pytest verification cases:
+To verify that all recommendation math and skill-gap calculations work properly:
 ```powershell
-.\scripts\run_tests.ps1
+python test_system.py
 ```
 *Expected Result:*
 ```
-11 passed in 0.70s (100% Passing)
+ALL 5 TESTS PASSED SUCCESSFULLY! (100% Verified)
 ```
 
 ---
 
-## 📚 Project Documentation
-- **[System Architecture](docs/architecture.md):** Complete architecture overview with Mermaid diagrams.
-- **[Database Design](docs/database-design.md):** Entity-Relationship (ER) diagram and schema specifications.
-- **[Automated Testing Report](docs/testing-report.md):** Detailed breakdown of all 11 test cases and results.
-- **[Viva Questions & Answers](docs/viva-questions.md):** Top examiner questions and beginner-friendly answers.
-- **[Mini-Project Report Outline](docs/project-report-outline.md):** Chapter-by-chapter college submission template.
-- **[Project Journey Log](docs/PROJECT_JOURNEY_LOG.md):** Daily session tracking.
+## 💡 Quick Demo Tips for Your College Viva
+1. In the sidebar, click **"Load Sample Student Profile (AI/ML)"** to instantly populate realistic student data.
+2. Explain the 4 main sections to your examiner:
+   - **Section 1 (Student Profile):** Academic details and multiselect skill inputs.
+   - **Section 2 (Recommendations):** Displays ranked cards with compatibility percentages.
+   - **Section 3 (Skill Gap):** Green box shows skills already possessed; orange box shows skills to learn.
+   - **Section 4 (Roadmap):** Step-by-step 4-phase learning milestones (Foundations $\rightarrow$ Core $\rightarrow$ Projects $\rightarrow$ Portfolio).
+3. Review **`viva_guide.md`** for common examiner questions and exact answers!
