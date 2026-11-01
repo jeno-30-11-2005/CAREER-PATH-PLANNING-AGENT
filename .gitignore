@@ -1,7 +1,6 @@
 # Python
 venv/
 tools/
-*.db
 career_agent.db
 __pycache__/
 *.py[cod]
